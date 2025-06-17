@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.bg-customer{
+    background-color: 020228;
+}
+@keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-200%); /* Di chuyển 100% chiều dài của tất cả các ảnh */
+    }
+  }
+  
+  .animate-marquee {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các ảnh */
+    animation: marquee 40s linear infinite; /* Điều chỉnh tốc độ cho hiệu ứng chạy liên tục */
+  }
+  
+  .animate-marquee img {
+    flex-shrink: 0; /* Không co giãn ảnh */
+    width: 250px; /* Chiều rộng cố định */
+    height: 300px; /* Chiều cao cố định */
+    
+    border-radius: 20px;
+
+  }
+  
