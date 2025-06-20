@@ -35,19 +35,20 @@ const ServiceImages = () => {
     <div className="max-w-8xl mx-auto py-12 px-4 relative">
       <div className="overflow-hidden">
         <div ref={containerRef} className="animate-marquee">
-          <div className="flex gap-20">
+          <div className="flex gap-10">
             {serviceImages.concat(serviceImages, serviceImages, serviceImages).map((image, index) => (
               <div
                 key={index}
                 className={`w-[200px] h-[350px] rounded-[20px] overflow-hidden relative`}
                 style={{
                   transform: `translateX(-${currentIndex * 200}px)`, 
+                  transition: 'transform 0.5s ease-in-out', 
                 }}
               >
                 <img
                   src={image}
                   alt={`Service ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover drop-shadow-[0px_3px_2px_rgba(0,0,0,0.3)]"
                   onError={(e) => {
                     e.target.onerror = null;
                     e.target.src = '/images/services/placeholder.jpg';
@@ -63,15 +64,15 @@ const ServiceImages = () => {
           {/* Previous Button */}
           <button
             onClick={handlePrevious}
-            className="bg-white text-gray-400 w-11 h-11 border-2 border-gray flex items-center justify-center rounded-full hover:text-gray-600"
+            className="bg-white text-gray-400 w-11 h-11 border-2 border-gray flex items-center justify-center rounded-full hover:text-gray-600 hidden sm:flex" 
           >
-             <i className="fas fa-chevron-left"></i>
+            <i className="fas fa-chevron-left"></i>
           </button>
           
           {/* Next Button */}
           <button
             onClick={handleNext}
-             className="bg-white text-gray-400 w-11 h-11 border-2 border-gray flex items-center justify-center rounded-full hover:text-gray-600"
+             className="bg-white text-gray-400 w-11 h-11 border-2 border-gray flex items-center justify-center rounded-full hover:text-gray-600 hidden sm:flex"
           >
             <i className="fas fa-chevron-right"></i>
           </button>

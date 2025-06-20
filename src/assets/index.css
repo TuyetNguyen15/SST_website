@@ -12,7 +12,14 @@
       transform: translateX(-200%); /* Di chuyển 100% chiều dài của tất cả các ảnh */
     }
   }
-  
+  h2 {
+    text-shadow: 
+    0px 4px 3px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-shadow: 
+    0px 5px 3px rgba(248, 248, 248, 0.2);
+  }
   .animate-marquee {
     display: flex;
     gap: 10px; /* Khoảng cách giữa các ảnh */
@@ -27,4 +34,155 @@
     border-radius: 20px;
 
   }
+  .text-customer {
+    background: linear-gradient(90deg, #2B78B8 15%, #5DADD3 21%, #71CADC 39%,#A95853 49%, #BB3225 59%,#E48520 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+  }
+  .text-customer-reversed {
+    background: linear-gradient(90deg, #E48520 15%, #BB3225 21%, #A95853 39%, #71CADC 49%, #5DADD3 59%, #2B78B8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline;
+  }
+
+  .text-customer-2 {
+    background: linear-gradient(135deg, #2B78B8 15%, #2C78B8 11%, #5DADD3 39%,#E6995C 49%, #EBBB95 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+  }
   
+.bg-customer{
+  background: linear-gradient(180deg, #FFFFFF 45%, #D9D4D4 70%, #000000 100%);
+}
+.bg-customer-2{
+  background: linear-gradient(45deg, 
+    #F6E0CF 0%, 
+    #ffffff 25%, 
+    #cceaf9 50%, 
+    #ffffff 75%, 
+    #F6E0CF 100%);
+}
+.bg-customer-3 {
+  background: radial-gradient(circle, 
+    #031d22 10%, 
+    #111a1e 15%,  
+    #426372 55%, 
+    #031d22 100%);
+}
+.bg-customer-4 {
+  background: radial-gradient(circle, 
+    rgba(1, 29, 34, 0.7) 10%,   /* Nhạt và có độ trong suốt ở phần giữa */
+    rgba(43, 59, 66, 0.7) 25%,  /* Nhạt hơn với độ trong suốt */
+    rgba(66, 99, 102, 0.7) 55%, /* Màu sáng hơn với độ trong suốt */
+    rgba(1, 29, 34, 0.7) 100%); /* Phần cuối có độ trong suốt */
+}
+
+
+  /* Nút trái/phải */
+.carousel-button {
+  background: none; /* Bỏ background */
+  color: #bbb; /* Màu chữ trắng */
+  border: none; /* Bỏ đường viền */
+  padding: 10px; /* Khoảng cách cho nút */
+  cursor: pointer; /* Con trỏ là dạng tay */
+  font-size: 20px; /* Cỡ chữ */
+  transition: transform 0.3s ease; /* Hiệu ứng chuyển động */
+}
+
+/* Khi hover vào nút */
+.carousel-button:hover {
+  color: #7b7b7b;
+  transform: scale(1.2); /* Hiệu ứng phóng to khi hover */
+}
+
+/* Các dot indicator */
+.indicator-container {
+  display: flex;
+  justify-content: center;
+  gap: 8px; /* Khoảng cách giữa các dot */
+}
+
+/* Các dot */
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  color: #bbb;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.indicator.active {
+  background-color: #0b1c37; /* Màu sắc khi active */
+  transform: scale(1.2); /* Hiệu ứng phóng to */
+}
+
+/* CSS - Đảm bảo carousel thu nhỏ khi màn hình nhỏ */
+@media (max-width: 1024px) {
+  .perspective-1000 {
+    transform: scale(0.8); /* Thu nhỏ carousel trên màn hình tablet */
+  }
+
+  .carousel-container {
+    width: 90%; /* Điều chỉnh carousel chiếm 90% chiều rộng */
+  }
+
+  .carousel-button {
+    font-size: 20px; /* Thu nhỏ các nút điều khiển */
+  }
+
+  .indicator-container {
+    display: flex; /* Đảm bảo các dot vẫn nằm ngang */
+    gap: 8px;/* Điều chỉnh chỉ báo thành cột trên màn hình nhỏ */
+  }
+
+  .indicator {
+    width: 16px; /* Điều chỉnh kích thước dot */
+    height: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .perspective-1000 {
+    transform: scale(0.6); /* Thu nhỏ hơn nữa trên màn hình di động */
+  }
+
+  .carousel-container {
+    width: 80%; /* Điều chỉnh carousel chiếm 80% chiều rộng */
+  }
+
+  .carousel-button {
+    font-size: 18px; /* Thu nhỏ hơn nữa các nút điều khiển */
+  }
+
+  .indicator {
+    width: 12px; /* Thu nhỏ dot */
+    height: 12px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .perspective-1000 {
+    transform: scale(0.5); /* Thu nhỏ carousel hơn nữa trên màn hình nhỏ */
+  }
+
+  .carousel-container {
+    width: 100%; /* Làm carousel chiếm toàn bộ chiều rộng */
+  }
+
+  .carousel-button {
+    font-size: 16px; /* Thu nhỏ nút điều khiển nữa */
+  }
+
+  .indicator {
+    width: 10px; /* Thu nhỏ dot */
+    height: 10px;
+    margin: 0;
+  }
+}
