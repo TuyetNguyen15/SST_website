@@ -1,10 +1,15 @@
 import React from "react";
 import image6 from "../assets/image6.png";
-
-export default function BlockchainServices() {
+import DeFiTechnologiesCircle from "./DeFiTechnologiesCircle ";
+import FeaturedProducts from "./FeaturedProducts";
+import Footer from "../components/Footer";
+import Header from "../components/header";
+ function BlockchainServices() {
  
 
   return (
+    <section>
+       <Header className="fixed top-0 left-0 right-0 z-50" />
     <div className="container">
       <div className="stripes"></div>
       <div className="background" style={{ backgroundImage: `url(${image6})` }}></div>
@@ -16,6 +21,7 @@ export default function BlockchainServices() {
           Shape the Future with Decentralized Finance & Blockchain
         </p>
       </div>
+      
       <style jsx>{`
         .container {
           position: relative;
@@ -37,7 +43,7 @@ export default function BlockchainServices() {
           height: 100%;
           background-repeat: no-repeat;
           background-position: center bottom;
-          background-size: contain;
+          background-size: 100% auto;
           opacity: 0.7;
           z-index: 1;
         }
@@ -62,5 +68,10 @@ export default function BlockchainServices() {
         }
       `}</style>
     </div>
+    <DeFiTechnologiesCircle/>
+    <FeaturedProducts/>
+    <Footer/>
+    </section>
   );
-}
+};
+export default BlockchainServices;

@@ -2,11 +2,12 @@ import React from "react";
 import ServiceSlider from "../components/Slider";
 import Header from "../components/header";
 import Carousel from "../components/Carousel";
-import ThreeColumns from "../components/ThreeColumns"; // Import ThreeColumns
-import { useLanguage } from "../components/LanguageContext";  // Import useLanguage
+import ThreeColumns from "../components/ThreeColumns"; 
+import { useLanguage } from "../components/LanguageContext";  
+import Footer from "../components/Footer";
 
 const Home = () => {
-  const { language } = useLanguage(); // Sử dụng ngữ cảnh để lấy ngôn ngữ
+  const { language } = useLanguage(); 
 
   const columnData = [
     {
@@ -27,7 +28,7 @@ const Home = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 ">
       <Header className="fixed top-0 left-0 right-0 z-50" />
 
       <main className="pt-5">
@@ -37,7 +38,7 @@ const Home = () => {
             <img
               src={require('../assets/BGHOME.png')}
               alt={language === 'EN' ? "AI-Powered Solutions" : "Giải Pháp AI"}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover "
             />
             <div className="absolute inset-0 bg-black/50"></div>
           </div>
@@ -60,7 +61,7 @@ const Home = () => {
 
               <div className="flex items-center justify-center text-white max-w-2xl text-center">
                 <div>
-                  <h1 className="text-3xl sm:text-4xl md:text-[64px] font-medium mb-12 whitespace-nowrap">
+                  <h1 className="text-3xl sm:text-4xl md:text-[64px] font-medium mb-12 whitespace-nowrap ">
                     {language === 'EN' ? "Transform Your Business with" : "Tăng Tốc Doanh Nghiệp Với "}
                   </h1>
                   <h1 className="text-3xl sm:text-4xl md:text-[64px] font-medium mb-4 whitespace-nowrap">
@@ -92,18 +93,17 @@ const Home = () => {
         </section>
 
         {/* Services Section */}
-        <section className="py-12 bg-white">
+        <section className="pt-12 bg-white">
           <div id="service" className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8">
+            <h2 className="text-3xl sm:text-4xl  md:text-5xl font-bold mb-8">
               <span className="text-customer">
-                {language === 'EN' ? "Explore Our Services" : "Explore Our Services"}
+                {language === 'EN' ? "Explore Our Services" : "Dịch Vụ Của Chúng Tôi"}
               </span>
             </h2>
 
             <p className="text-xl sm:text-2xl md:text-1xl text-gray-600 mb-6 max-w-3xl mx-auto">
               {language === 'EN' ? "Delivering Professional Services Tailored to Your Needs" : "Cung cấp giải pháp chuyên nghiệp, tùy chỉnh theo yêu cầu và mục tiêu của doanh nghiệp bạn"}
             </p>
-
             <ServiceSlider />
           </div>
 
@@ -111,7 +111,7 @@ const Home = () => {
           <div id="projects" className="container mx-auto px-4 text-center">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               <span className="text-customer-reversed">
-                {language === 'EN' ? "Explore Our Success Stories" : "Explore Our Success Stories"}
+                {language === 'EN' ? "Explore Our Success Stories" : "Dự Án Của Chúng Tôi"}
               </span>
             </h2>
             <p className="text-xl sm:text-2xl md:text-1xl text-gray-600 max-w-4xl mx-auto">
@@ -121,7 +121,7 @@ const Home = () => {
           </div>
 
           {/* Group Section */}
-          <div id="group" className="container min-h-[500px] bg-customer mx-auto px-4 text-center mt-5">
+          <div id="group" className="container min-h-[600px] bg-customer mx-auto px-4 text-center mt-5">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-12 md:mb-16 lg:mb-20">
               <span className="text-customer">
                 {language === 'EN' ? "SSTech Groups" : "SSTech Groups"}
@@ -129,17 +129,9 @@ const Home = () => {
             </h2>
             <ThreeColumns data={columnData} />
           </div>
-
-          <div id="group" className="container min-h-[500px] bg-customer mx-auto px-4 text-center mt-12">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-12 md:mb-16 lg:mb-20">
-              <span className="text-customer">
-                {language === 'EN' ? "SSTech Groups" : "Nhóm SSTech"}
-              </span>
-            </h2>
-            <ThreeColumns data={columnData} />
-          </div>
         </section>
       </main>
+      <Footer/>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/header";
 import "../assets/index.css";
 import { useLanguage } from "../components/LanguageContext"; 
+import Footer from "../components/Footer";
 
 const AIPage = () => {
     const { language } = useLanguage();
@@ -104,7 +105,7 @@ const AIPage = () => {
                     </div>
                 </section>
 
-                <section className="py-12 px-4 sm:px-6 lg:px-8 h-[700px] mb-24">
+                <section className="py-12 px-4 sm:px-6 lg:px-8 h-[700px] mb-10">
                     <div className="max-w-6xl mx-auto">
                         <h2 className="text-2xl sm:text-3xl md:text-6xl font-bold text-customer-2 mb-12 py-2 text-left w-full">
                             {language === 'EN' ? "Explore our products" : "Sản phẩm khác"}
@@ -138,6 +139,7 @@ const AIPage = () => {
                     </div>
                 </section>
             </main>
+            <Footer/>
         </div>
     );
 };

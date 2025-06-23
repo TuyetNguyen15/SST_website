@@ -1,9 +1,16 @@
 import ezgif from "../assets/ezgif1.png";
+import Header from "../components/header";
+import Footer from "../components/Footer";
+import GameSlider from './GameSlider';
+import Kcripto from './KriptoGalaxyBattle';
 
 export default function GameService() {
  
 
   return (
+    <section>
+        <Header className="fixed top-0 left-0 right-0 z-50" />
+
     <div className="container">
       <div className="stripes"></div>
       <div className="background" style={{ backgroundImage: `url(${ezgif})` }}></div>
@@ -60,5 +67,9 @@ export default function GameService() {
         }
       `}</style>
     </div>
+    <GameSlider/>
+    <Kcripto/>
+    <Footer/>
+    </section>
   );
 }

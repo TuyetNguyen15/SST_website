@@ -57,7 +57,7 @@ const Header = () => {
 
   return (
     <nav className="bg-[#020228] bg-opacity-100 shadow-md fixed w-full z-50 h-16 text-lg">
-      <div className="container mx-auto px-4 h-full flex justify-between items-center">
+      <div className=" mx-auto px-4 h-full flex justify-between items-center">
         <NavLink to="/" className="flex items-center h-full group">
           <div className="relative h-full flex items-center">
             <img src={require('../assets/logo.png')} alt="SS Technology Logo" className="h-12 transform scale-110 transition-all duration-300 origin-left" />
@@ -77,10 +77,10 @@ const Header = () => {
             {/* Desktop Dropdown */}
             {servicesDropdown && (
               <div className="absolute left-0 mt-2 w-80 bg-[#020228] border border-gray-700 rounded-md shadow-lg py-1 z-20">
-                <NavLink to="/services/web-development" className="block px-4 py-2 text-gray-100 hover:opacity-60 hover:text-white" onClick={() => setServicesDropdown(false)}>
+                <NavLink to="/services/blockchain-solution" className="block px-4 py-2 text-gray-100 hover:opacity-60 hover:text-white" onClick={() => setServicesDropdown(false)}>
                   {language === 'EN' ? 'Blockchain & Decentralize Finance' : 'Blockchain & Tài chính phi tập trung'}
                 </NavLink>
-                <NavLink to="/services/mobile-app" className="block px-4 py-2 text-gray-100 hover:opacity-60 hover:text-white" onClick={() => setServicesDropdown(false)}>
+                <NavLink to="/services/game-service" className="block px-4 py-2 text-gray-100 hover:opacity-60 hover:text-white" onClick={() => setServicesDropdown(false)}>
                   {language === 'EN' ? 'Cross Platform Games' : 'Trò chơi đa nền tảng'}
                 </NavLink>
                 <NavLink to="/services/ai-solution" className="block px-4 py-2 text-gray-100 hover:opacity-60 hover:text-white" onClick={() => setServicesDropdown(false)}>
@@ -142,7 +142,7 @@ const Header = () => {
                 {/* Service titles listed vertically */}
                 <div className=" flex space-x-2">
                   <NavLink
-                    to="/services/web-development"
+                    to="/services/blockchain-solution"
                     className="block px-4 py-2 text-gray-100 hover:text-white hover:opacity-60"
                     onClick={() => setServicesDropdown(false)}
                   >
@@ -150,7 +150,7 @@ const Header = () => {
                   </NavLink>
 
                   <NavLink
-                    to="/services/mobile-app"
+                    to="/services/game-service"
                     className="block px-4 py-2 text-gray-100 hover:text-white hover:opacity-60"
                     onClick={() => setServicesDropdown(false)}
                   >
