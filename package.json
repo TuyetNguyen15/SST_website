@@ -1,4 +1,5 @@
 {
+  "name": "sstech_website",
   "name": "fe",
   "version": "0.1.0",
   "private": true,
@@ -8,9 +9,14 @@
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "lucide-react": "^0.522.0",
+    "@types/styled-components": "^5.1.34",
+    "font-awesome": "^4.7.0",
     "nativewind": "^2.0.11",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^7.6.2",
+    "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1",
     "tailwindcss": "^3.2.2",
     "web-vitals": "^2.1.4"

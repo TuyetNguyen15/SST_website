@@ -1,9 +1,9 @@
 module.exports = {
   content: [
-    "./src/**/*.{js,jsx,ts,tsx}",
     "./public/index.html",
     "./components/**/*.{js,jsx}",
-    "./screens/**/*.{js,jsx}"
+    "./screens/**/*.{js,jsx}",
+    "./src/**/*.{html,js,jsx,ts,tsx}", // Đảm bảo quét tất cả các file React của bạn
   ],
   theme: {
     extend: {},
