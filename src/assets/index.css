@@ -1,6 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+html {
+  scroll-behavior: smooth;
+}
+.slide-in {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* When the element is in view */
+.slide-in.visible {
+  transform: translateX(0);
+  opacity: 1;
+}
 .bg-customer{
     background-color: 020228;
 }

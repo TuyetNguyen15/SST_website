@@ -11,9 +11,9 @@ const AIPage = () => {
         <div className="min-h-screen bg-gray-50">
             <Header className="fixed top-0 left-0 right-0 z-50" />
 
-            <main className="pt-5">
+            <main >
                 {/* Hero Section */}
-                <section className="relative w-full min-h-[720px] mt-10 overflow-hidden">
+                <section className="relative w-full min-h-[720px] overflow-hidden">
                     <div className="absolute inset-0 z-0">
                         <img
                             src={require('../assets/background_ai.jpg')}
@@ -105,7 +105,7 @@ const AIPage = () => {
                     </div>
                 </section>
 
-                <section className="py-12 px-4 sm:px-6 lg:px-8 h-[700px] mb-10">
+                <section className="py-12 px-4 sm:px-6 lg:px-8 h-[700px] mb-1">
                     <div className="max-w-6xl mx-auto">
                         <h2 className="text-2xl sm:text-3xl md:text-6xl font-bold text-customer-2 mb-12 py-2 text-left w-full">
                             {language === 'EN' ? "Explore our products" : "Sản phẩm khác"}

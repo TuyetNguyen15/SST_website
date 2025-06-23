@@ -31,7 +31,7 @@ const Home = () => {
     <div className="min-h-screen bg-gray-50 ">
       <Header className="fixed top-0 left-0 right-0 z-50" />
 
-      <main className="pt-5">
+      <main >
         {/* Hero Section */}
         <section className="relative w-full min-h-[50vh] md:min-h-[700px] overflow-hidden">
           <div className="absolute inset-0 z-0">
@@ -131,7 +131,9 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <Footer/>
+      <div id="contact">
+      <Footer />
+      </div>
     </div>
   );
 };
