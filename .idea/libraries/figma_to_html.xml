@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="figma-to-html">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/assets/figma-to-html.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
