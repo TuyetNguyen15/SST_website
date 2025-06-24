@@ -130,13 +130,14 @@ const AIPage = () => {
                                     alt={language === 'EN' ? "Software Solutions" : "Giải Pháp Phần Mềm"}
                                     className="w-full h-[400px] object-cover rounded-xl shadow-xl transition-all duration-300"
                                 />
-                                <div className="rounded-xl absolute px-6 inset-0 bg-black bg-opacity-50 flex flex-col justify-center text-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                                    <h2 className="text-white text-lg md:text-3xl">{language === 'EN' ? "Software Solutions" : "Giải Pháp Phần Mềm"}</h2>
-                                    <p className="text-white text-lg mt-2">{language === 'EN' ? "SST provides software and security solutions for many units in the banking industry" : "SST cung cấp các giải pháp phần mềm và bảo mật cho nhiều đơn vị trong ngành ngân hàng"}</p>
-                                    <p className="text-white text-lg mt-2">{language === 'EN' ? "Clients: VCB, TCB, VP Bank, SeaBank, OCB" : "Khách hàng: VCB, TCB, VP Bank, SeaBank, OCB"}</p>
+                                <div className="rounded-xl absolute px-6 inset-0 bg-black bg-opacity-50 flex flex-col justify-center text-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 sm:px-4 sm:text-left">
+                                    <h2 className="text-white text-md md:text-3xl">{language === 'EN' ? "Software Solutions" : "Giải Pháp Phần Mềm"}</h2>
+                                    <p className="text-white text-sm md:text-md mt-2">{language === 'EN' ? "SST provides software and security solutions for many units in the banking industry" : "SST cung cấp các giải pháp phần mềm và bảo mật cho nhiều đơn vị trong ngành ngân hàng"}</p>
+                                    <p className="text-white text-sm md:text-md mt-2">{language === 'EN' ? "Clients: VCB, TCB, VP Bank, SeaBank, OCB" : "Khách hàng: VCB, TCB, VP Bank, SeaBank, OCB"}</p>
                                 </div>
+
                             </div>
-                            
+
                         </div>
 
 

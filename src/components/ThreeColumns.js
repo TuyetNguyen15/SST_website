@@ -9,10 +9,10 @@ const ThreeColumns = ({ data }) => {
           <div className="flex justify-start items-start">
             
             <img src={item.icon} alt={item.title} className="w-24 h-18 mr-3" />
-            {/* Tiêu đề cột */}
+           
             <div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-left">{item.title}</h3>
-              {/* Mô tả cột, căn trái */}
+             
               <p className="mt-2 text-lg sm:text-xl text-white-600 text-left">{item.description}</p>
             </div>
           </div>
