@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-
+import { useLanguage } from "../components/LanguageContext";
 const FeaturedProducts = () => {
   const [selectedFeature, setSelectedFeature] = useState(0);
-
+  const { language } = useLanguage(); 
   useEffect(() => {
     const title = document.getElementById("featured-title");
     title.style.opacity = "0";
@@ -16,7 +16,7 @@ const FeaturedProducts = () => {
   const features = [
     {
       title: "WispSwap - Decentralized Exchange",
-      description: "WispSwap is a DEX developed on the SUI Blockchain Network, with outstanding features such as:",
+      description :`${language === 'EN' ? "WispSwap is a DEX developed on the SUI Blockchain Network, with outstanding features such as:" : "WispSwap là một sàn giao dịch phi tập trung (DEX) được phát triển trên mạng lưới SUI Blockchain, với các tính năng nổi bật như:"}`,
       features: [
         { icon: "🔄", text: "Trade" },
         { icon: "💧", text: "Pools (Liquidity)" },
@@ -30,7 +30,7 @@ const FeaturedProducts = () => {
     },
     {
       title: "Multi Level Marketing DEX",
-      description: "It is a multi-level investment platform with impressive features and the ability to generate attractive profits.",
+      description :`${language === 'EN' ? "It is a multi-level investment platform with impressive features and the ability to generate attractive profits" : "Đây là nền tảng đầu tư đa cấp với nhiều tính năng ấn tượng và khả năng tạo ra lợi nhuận hấp dẫn"}`,
        features: [
         { icon: "⚡", text: "DEX (Decentralized Exchange)" },
         { icon: "🎁", text: "Staking with Referral System" },
@@ -43,7 +43,8 @@ const FeaturedProducts = () => {
     },
     {
       title: "Payment Gateway & Crypto Wallet",
-      description: "In this project, we have developed a payment gateway, supporting many different types of tokens, ensuring the security of Users",
+      description :`${language === 'EN' ? "In this project, we have developed a payment gateway, supporting many different types of tokens, ensuring the security of Users" : "Trong dự án này, chúng tôi đã phát triển một cổng thanh toán, hỗ trợ nhiều loại mã thông báo khác nhau, đảm bảo tính bảo mật cho người dùng"}`,
+
       features: [
         { icon: "🪙", text: "Multi-tokens support" },
         { icon: "🔄", text: "Auto Swap" },

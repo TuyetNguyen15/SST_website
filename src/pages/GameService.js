@@ -3,11 +3,12 @@ import ezgif from "../assets/ezgif1.png";
 import Header from "../components/header";
 import Footer from "../components/Footer";
 import GameSlider from './GameSlider';
+import { useLanguage } from "../components/LanguageContext";
 import Kcripto from './KriptoGalaxyBattle';
 
 export default function GameService() {
 const [imageHeight, setImageHeight] = useState(0);
-
+const { language } = useLanguage(); 
 useEffect(() => {
   const img = new Image();
   img.onload = () => {
@@ -33,7 +34,8 @@ useEffect(() => {
             Cross Platform Games
           </h1>
           <p className="text-2xl text-white mt-2.5">
-            Accelerate Growth with Cross-Platform Game Development
+          {language === 'EN' ? "Accelerate Growth with Cross-Platform Game Creation" : "Tăng tốc tăng trưởng với việc sáng tạo game đa nền tảng"}
+            
           </p>
         </div>
       </div>

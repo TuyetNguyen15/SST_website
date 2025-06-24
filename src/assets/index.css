@@ -1,10 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.bg-customer{
-    background-color: 020228;
+.custom-font {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 300;
 }
+/* .bg-customer{
+    background-color: 020228;
+} */
 @keyframes marquee {
     0% {
       transform: translateX(0);
@@ -23,14 +26,14 @@
   }
   .animate-marquee {
     display: flex;
-    gap: 10px; /* Khoảng cách giữa các ảnh */
-    animation: marquee 40s linear infinite; /* Điều chỉnh tốc độ cho hiệu ứng chạy liên tục */
+    gap: 10px;
+    animation: marquee 30s linear infinite; 
   }
   
   .animate-marquee img {
-    flex-shrink: 0; /* Không co giãn ảnh */
-    width: 250px; /* Chiều rộng cố định */
-    height: 300px; /* Chiều cao cố định */
+    flex-shrink: 0; 
+    width: 250px;
+    height: 300px; 
     
     border-radius: 20px;
 
@@ -69,6 +72,7 @@
     #ffffff 75%, 
     #F6E0CF 100%);
 }
+
 .bg-customer-3 {
   background: radial-gradient(circle, 
     #031d22 10%, 
@@ -78,35 +82,33 @@
 }
 .bg-customer-4 {
   background: radial-gradient(circle, 
-    rgba(1, 29, 34, 0.7) 10%,   /* Nhạt và có độ trong suốt ở phần giữa */
-    rgba(43, 59, 66, 0.7) 25%,  /* Nhạt hơn với độ trong suốt */
-    rgba(66, 99, 102, 0.7) 55%, /* Màu sáng hơn với độ trong suốt */
-    rgba(1, 29, 34, 0.7) 100%); /* Phần cuối có độ trong suốt */
+    rgba(1, 29, 34, 0.7) 10%,   
+    rgba(43, 59, 66, 0.7) 25%,  
+    rgba(66, 99, 102, 0.7) 55%,
+    rgba(1, 29, 34, 0.7) 100%); 
 }
 
-
-  /* Nút trái/phải */
 .carousel-button {
-  background: none; /* Bỏ background */
-  color: #bbb; /* Màu chữ trắng */
-  border: none; /* Bỏ đường viền */
-  padding: 10px; /* Khoảng cách cho nút */
-  cursor: pointer; /* Con trỏ là dạng tay */
-  font-size: 20px; /* Cỡ chữ */
-  transition: transform 0.3s ease; /* Hiệu ứng chuyển động */
+  background: none; 
+  color: #bbb; 
+  border: none; 
+  padding: 5px; 
+  cursor: pointer;
+  font-size: 20px; 
+  transition: transform 0.2s ease; 
 }
 
-/* Khi hover vào nút */
+
 .carousel-button:hover {
   color: #7b7b7b;
-  transform: scale(1.2); /* Hiệu ứng phóng to khi hover */
+  transform: scale(1.2); 
 }
 
-/* Các dot indicator */
+
 .indicator-container {
   display: flex;
   justify-content: center;
-  gap: 8px; /* Khoảng cách giữa các dot */
+  gap: 6px; 
 }
 
 /* Các dot */
@@ -119,50 +121,50 @@
 }
 
 .indicator.active {
-  background-color: #0b1c37; /* Màu sắc khi active */
-  transform: scale(1.2); /* Hiệu ứng phóng to */
+  background-color: #0b1c37; 
+  transform: scale(1.2); 
 }
 
-/* CSS - Đảm bảo carousel thu nhỏ khi màn hình nhỏ */
+
 @media (max-width: 1024px) {
   .perspective-1000 {
-    transform: scale(0.8); /* Thu nhỏ carousel trên màn hình tablet */
+    transform: scale(0.8); 
   }
 
   .carousel-container {
-    width: 90%; /* Điều chỉnh carousel chiếm 90% chiều rộng */
+    width: 90%; 
   }
 
   .carousel-button {
-    font-size: 20px; /* Thu nhỏ các nút điều khiển */
+    font-size: 20px; 
   }
 
   .indicator-container {
-    display: flex; /* Đảm bảo các dot vẫn nằm ngang */
-    gap: 8px;/* Điều chỉnh chỉ báo thành cột trên màn hình nhỏ */
+    display: flex;
+    gap: 8px;
   }
 
   .indicator {
-    width: 16px; /* Điều chỉnh kích thước dot */
+    width: 16px; 
     height: 16px;
   }
 }
 
 @media (max-width: 768px) {
   .perspective-1000 {
-    transform: scale(0.6); /* Thu nhỏ hơn nữa trên màn hình di động */
+    transform: scale(0.6); 
   }
 
   .carousel-container {
-    width: 80%; /* Điều chỉnh carousel chiếm 80% chiều rộng */
+    width: 80%; 
   }
 
   .carousel-button {
-    font-size: 18px; /* Thu nhỏ hơn nữa các nút điều khiển */
+    font-size: 18px; 
   }
 
   .indicator {
-    width: 12px; /* Thu nhỏ dot */
+    width: 12px; 
     height: 12px;
     margin: 0;
   }
@@ -170,19 +172,19 @@
 
 @media (max-width: 480px) {
   .perspective-1000 {
-    transform: scale(0.5); /* Thu nhỏ carousel hơn nữa trên màn hình nhỏ */
+    transform: scale(0.5); 
   }
 
   .carousel-container {
-    width: 100%; /* Làm carousel chiếm toàn bộ chiều rộng */
+    width: 100%;
   }
 
   .carousel-button {
-    font-size: 16px; /* Thu nhỏ nút điều khiển nữa */
+    font-size: 16px; 
   }
 
   .indicator {
-    width: 10px; /* Thu nhỏ dot */
+    width: 10px; 
     height: 10px;
     margin: 0;
   }

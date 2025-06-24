@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from "../components/LanguageContext";  
 import { Lock, Database, Users, FileText, Zap, Image, Smartphone } from 'lucide-react';
 
 const DeFiTechnologiesCircle = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const { language } = useLanguage(); 
   const technologies = [
     {
       title: "Cryptography",
@@ -95,7 +96,8 @@ const DeFiTechnologiesCircle = () => {
       <div style={styles.leftInfoContainer}>
         <div style={styles.infoCard}>
           <p style={styles.infoText}>
-            Decentralize Finance (DeFi) is an important field in the Blockchain sector
+          {language === 'EN' ? "Decentralize Finance (DeFi) is an important field in the Blockchain sector" : "Tài chính phi tập trung (DeFi) là một lĩnh vực quan trọng trong ngành Blockchain"}
+           
           </p>
         </div>
       </div>
@@ -104,7 +106,7 @@ const DeFiTechnologiesCircle = () => {
       <div style={styles.statsContainer}>
         <div style={styles.statCard}>
           <span style={styles.statNumber}>$43B</span>
-          <span style={styles.statLabel}>Total Assets Locked in DeFi (Nov 2023)</span>
+          <span style={styles.statLabel}>{language === 'EN' ? "Total Assets Locked in DeFi (Nov 2023) " : "Tổng tài sản khóa trong DeFi (11/2023)"}</span>
         </div>
       </div>
 
@@ -113,8 +115,8 @@ const DeFiTechnologiesCircle = () => {
         
         <div style={styles.centralCircle}>
           <div style={styles.centralContent}>
-            <h2 style={styles.centralTitle}>Technologies Used in</h2>
-            <h2 style={styles.centralSubtitle}>Blockchain Sector</h2>
+            <h2 style={styles.centralTitle}>{language === 'EN' ? "Technologies Used in" : "Công nghệ được dùng"}</h2>
+            <h2 style={styles.centralSubtitle}> {language === 'EN' ? "Blockchain Sector" : "trong Blockchain"}</h2>
           </div>
           <div style={styles.centralGlow}></div>
         </div>
@@ -346,7 +348,7 @@ const styles = {
     padding: '1rem'
   },
   centralTitle: {
-    fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)', // ✅ Responsive font
+    fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)', 
     fontWeight: '600',
     color: 'white',
     margin: '0 0 0.5rem 0',
@@ -354,7 +356,7 @@ const styles = {
     lineHeight: '1.3'
   },
   centralSubtitle: {
-    fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)', // ✅ Responsive font
+    fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)', 
     color: 'rgba(255, 255, 255, 0.9)',
     margin: 0,
     fontWeight: '600',
@@ -375,7 +377,7 @@ const styles = {
     transition: 'all 0.5s ease-out'
   },
   techCard: {
-    width: 'min(150px, 12vw)', // ✅ Responsive width
+    width: 'min(150px, 12vw)', 
     padding: '1.2rem',
     borderRadius: '1rem',
     display: 'flex',
@@ -385,7 +387,7 @@ const styles = {
     cursor: 'pointer',
     transition: 'all 0.3s ease-out',
     position: 'relative',
-    boxSizing: 'border-box' // ✅ Thêm box-sizing
+    boxSizing: 'border-box' 
   },
   techIcon: {
     marginBottom: '0.75rem',
@@ -399,13 +401,13 @@ const styles = {
     alignItems: 'center'
   },
   techTitle: {
-    fontSize: 'clamp(0.7rem, 1vw, 0.9rem)', // ✅ Responsive font
+    fontSize: 'clamp(0.7rem, 1vw, 0.9rem)', 
     fontWeight: '600',
     margin: '0 0 0.25rem 0',
     lineHeight: '1.2'
   },
   techSubtitle: {
-    fontSize: 'clamp(0.6rem, 0.9vw, 0.8rem)', // ✅ Responsive font
+    fontSize: 'clamp(0.6rem, 0.9vw, 0.8rem)', 
     margin: 0,
     lineHeight: '1.2',
     fontWeight: '300'
@@ -423,7 +425,7 @@ const styles = {
   },
   orbitalRing: {
     position: 'absolute',
-    width: 'min(720px, 65vw)', // ✅ Responsive size
+    width: 'min(720px, 65vw)', 
     height: 'min(720px, 65vw)',
     borderRadius: '50%',
     border: '1px dashed rgba(255, 255, 255, 0.2)',
@@ -435,7 +437,6 @@ const styles = {
   }
 };
 
-// Add CSS animations và media queries
 const styleSheet = document.createElement("style");
 styleSheet.type = "text/css";
 styleSheet.innerText = `

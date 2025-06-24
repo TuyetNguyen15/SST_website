@@ -1,12 +1,14 @@
 import React, {useEffect, useRef} from "react";
 import image6 from "../assets/image6.png";
 import DeFiTechnologiesCircle from "./DeFiTechnologiesCircle ";
+import { useLanguage } from "../components/LanguageContext";  
 import FeaturedProducts from "./FeaturedProducts";
 import Footer from "../components/Footer";
 import Header from "../components/header";
 
 function BlockchainServices() {
   const containerRef = useRef(null);
+  const { language } = useLanguage(); 
   
   useEffect(() => {
     if (containerRef.current) {
@@ -29,15 +31,17 @@ function BlockchainServices() {
         <div className="relative z-20 text-center max-w-6xl mx-auto">
           <h1 
             id="title" 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold bg-gradient-to-r from-[rgba(43,120,184,1)] via-[rgba(230,153,92,1)] to-[rgba(235,187,149,1)] bg-clip-text text-transparent mb-0 leading-tight"
+            className="text-4xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-8xl font-bold bg-gradient-to-r from-[rgba(43,120,184,1)] via-[rgba(230,153,92,1)] to-[rgba(235,187,149,1)] bg-clip-text text-transparent mb-0 leading-tight"
           >
-            Blockchain & Decentralized Finance
+            {language === 'EN' ? "Blockchain & Decentralized Finance" : "Blockchain & Tài chính phi tập trung "}
+           
           </h1>
           <p 
             id="subtitle" 
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-white mt-2.5 leading-relaxed"
           >
-            Shape the Future with Decentralized Finance & Blockchain
+             {language === 'EN' ? "Shape the Future with Decentralized Finance & Blockchain" : "Định hình Tương Lai với Tài chính phi tập trung & Blockchain"}
+            
           </p>
         </div>
       </div>

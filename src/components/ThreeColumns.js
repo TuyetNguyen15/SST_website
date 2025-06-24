@@ -8,7 +8,7 @@ const ThreeColumns = ({ data }) => {
         <div key={index} className="flex flex-col items-start p-4 mb-4 sm:w-1/3 sm:mb-0">
           <div className="flex justify-start items-start">
             
-            <img src={item.icon} alt={item.title} className="w-20 h-15 mr-3" />
+            <img src={item.icon} alt={item.title} className="w-24 h-18 mr-3" />
             {/* Tiêu đề cột */}
             <div>
               <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-left">{item.title}</h3>

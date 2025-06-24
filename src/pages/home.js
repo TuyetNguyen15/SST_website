@@ -11,17 +11,17 @@ const Home = () => {
 
   const columnData = [
     {
-      icon: require('../assets/images/icon/GamePad.jpg'),
+      icon: require('../assets/images/icon/game.png'),
       title: language === 'EN' ? "Studio Games" : "Studio Games",
       description: language === 'EN' ? "The Studio Games team specializes in designing creative and engaging digital products, offering exciting and innovative gaming experiences" : "Studio Games chuyên thiết kế các sản phẩm kỹ thuật số sáng tạo và hấp dẫn, mang đến những trải nghiệm chơi game thú vị và đổi mới"
     },
     {
-      icon: require('../assets/images/icon/software2.jpg'),
+      icon: require('../assets/images/icon/software2.png'),
       title: language === 'EN' ? "Outsource Software" : "Outsource Software",
       description: language === 'EN' ? "With extensive experience in software design, the Outsource Software team is committed to delivering high-quality software solutions that optimize processes and enhance productivity" : "Đội ngũ Outsource Software với kinh nghiệm vững vàng trong lĩnh vực thiết kế phần mềm, luôn nỗ lực mang đến các giải pháp phần mềm chất lượng, giúp tối ưu hóa quy trình và nâng cao năng suất làm việc"
     },
     {
-      icon: require('../assets/images/icon/web3.jpg'),
+      icon: require('../assets/images/icon/web3.png'),
       title: language === 'EN' ? "Outsource Web3" : "Outsource Web3",
       description: language === 'EN' ? "The Outsource Web3 team delivers Web3 solutions, helping businesses develop blockchain platforms and decentralized applications (DApps)" : "Outsource Web3 cung cấp các giải pháp Web3, hỗ trợ doanh nghiệp phát triển nền tảng blockchain và các ứng dụng phi tập trung (DApps)"
     }
@@ -51,7 +51,7 @@ const Home = () => {
                   alt="Decoration"
                   className="w-24 h-24 md:w-32 md:h-32 object-contain"
                 />
-                <h1 className="text-2xl md:text-3xl lg:text-4xl text-[#2C78B8] mx-6">SST</h1>
+                <h1 className="text-2xl md:text-3xl lg:text-4xl text-[#2C78B8] mx-6 custom-font">SST</h1>
                 <img
                   src={require('../assets/Frame 36.png')}
                   alt="Decoration"
@@ -78,14 +78,15 @@ const Home = () => {
                   alt="Decoration"
                   className="w-24 h-24 md:w-32 md:h-32 object-contain"
                 />
-                <h1 className="text-2xl sm:text-3xl md:text-4xl text-[#2C78B8] mx-6">{language === 'EN' ? "About Us" : "Giới Thiệu"}</h1>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl text-[#2C78B8] mx-6 custom-font">{language === 'EN' ? "About Us" : "Giới Thiệu"}</h1>
                 <img
                   src={require('../assets/Frame 36.png')}
                   alt="Decoration"
                   className="w-24 h-24 md:w-32 md:h-32 object-contain"
                 />
               </div>
-              <p className="text-white text-[20px] sm:text-[24px] md:text-[30px] max-w-4xl mx-auto">
+              <p className="text-white text-[20px] sm:text-[24px] md:text-[30px] max-w-4xl mx-auto custom-font"
+              >
                 {language === 'EN' ? "SSTech provides comprehensive technology solutions, helping businesses enhance efficiency and achieve sustainable growth through innovative and cutting-edge services" : "SSTech cung cấp các giải pháp công nghệ toàn diện, giúp doanh nghiệp nâng cao hiệu quả và phát triển bền vững thông qua các dịch vụ sáng tạo và đột phá"}
               </p>
             </div>
@@ -93,8 +94,8 @@ const Home = () => {
         </section>
 
         {/* Services Section */}
-        <section className="pt-12 bg-white">
-          <div id="service" className="container mx-auto px-4 text-center">
+        <section className="pt-12 bg-white ">
+          <div id="service" className=" mx-auto px-4 text-center">
             <h2 className="text-3xl sm:text-4xl  md:text-5xl font-bold mb-8">
               <span className="text-customer">
                 {language === 'EN' ? "Explore Our Services" : "Dịch Vụ Của Chúng Tôi"}
@@ -108,7 +109,7 @@ const Home = () => {
           </div>
 
           {/* Projects Section */}
-          <div id="projects" className="container mx-auto px-4 text-center">
+          <div id="projects" className="container mx-auto px-4 text-center ">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
               <span className="text-customer-reversed">
                 {language === 'EN' ? "Explore Our Success Stories" : "Dự Án Của Chúng Tôi"}
@@ -121,7 +122,7 @@ const Home = () => {
           </div>
 
           {/* Group Section */}
-          <div id="group" className="container min-h-[600px] bg-customer mx-auto px-4 text-center mt-5">
+          <div id="group" className="w-full min-h-[600px] bg-customer mx-auto px-4 text-center mt-5 ">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-10 sm:mb-12 md:mb-16 lg:mb-20">
               <span className="text-customer">
                 {language === 'EN' ? "SSTech Groups" : "SSTech Groups"}

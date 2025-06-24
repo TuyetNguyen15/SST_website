@@ -5,16 +5,16 @@ import '../tw.css';
 
 const Footer = () => (
   <footer className="bg-gray-900 text-white min-h-screen flex flex-col justify-center">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 ">
       
       {/* Main Content Section */}
-      <div className="text-center mb-8 lg:mb-12">
+      <div className="text-center mb-4 lg:mb-12">
         
-        {/* Get in touch button */}
+        {/* Get in touch button
         <button className="border border-white rounded-full px-6 py-2 lg:px-8 lg:py-3 text-white hover:bg-white hover:text-gray-900 transition-all duration-300 mb-6 lg:mb-8 text-sm lg:text-base">
           Get in touch
         </button>
-        
+         */}
         {/* Main heading */}
         <h2 className="font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl mb-4 lg:mb-6 leading-tight">
           Supercharge your business with SSTech!

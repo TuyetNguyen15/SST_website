@@ -3,13 +3,13 @@ module.exports = {
     "./public/index.html",
     "./components/**/*.{js,jsx}",
     "./screens/**/*.{js,jsx}",
-    "./src/**/*.{html,js,jsx,ts,tsx}", // Đảm bảo quét tất cả các file React của bạn
+    "./src/**/*.{html,js,jsx,ts,tsx}", 
   ],
   theme: {
     extend: {
-      fontFamily: {
-        montserrat: ['Montserrat', 'sans-serif'],
-      },
+      // fontFamily: {
+      //   montserrat: ['Montserrat', 'sans-serif'],
+      // },
     },
   },
   plugins: [],

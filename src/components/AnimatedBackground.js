@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 const AnimatedBackground = () => {
   useEffect(() => {
-    // Tạo CSS animations dynamically
+   
     const style = document.createElement('style');
     style.textContent = `
       @keyframes float {
