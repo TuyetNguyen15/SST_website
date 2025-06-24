@@ -3,57 +3,36 @@ import character1 from '../assets/9L2NNuHY0qNWCY6fOTuMMG7Qnqt1-7ba3a8w-removebg-
 import character2 from '../assets/9L2NNuHY0qNWCY6fOTuMMG7Qnqt1-7ba3a8w-removebg-preview 2.png';
 import character3 from '../assets/kcripto.jpg';
 import bg from '../assets/Frame3853.png';
+import bling from "../assets/Frame42.png";
+import { useLanguage } from '../components/LanguageContext';
 
 const KriptoGalaxyBattle = () => {
+  const { language } = useLanguage(); 
   return (
-    <div className="container">
-      <div className="background-wrapper">
-        <div 
-          className="background-image"
+    <div className="relative h-screen w-full overflow-hidden bg-black">
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div
+          className="w-4/5 h-4/5 bg-cover bg-center bg-no-repeat blur-[12px] brightness-[0.4]"
           style={{
             backgroundImage: `url(${bg})`,
           }}
         />
       </div>
-      
-      <div className="header-wrapper">
-        <div className="header-line"></div>
-        <div className="header-content">
-          <div className="scrolling-text-wrapper">
-            <div className="scrolling-text">
-              <div className="text-group">
-                {[...Array(5)].map((_, i) => (
-                  <div key={i} className="text-item">
-                    <div className="dot-wrapper">
-                      <div className="dot"></div>
-                    </div>
-                    <span>KRIPTOBATTLE.COM</span>
-                  </div>
-                ))}
-              </div>
-              
-              <div className="text-spacing"></div>
-              
-              <div className="text-group">
-                {[...Array(5)].map((_, i) => (
-                  <div key={i} className="text-item">
-                    <div className="dot-wrapper">
-                      <div className="dot"></div>
-                    </div>
-                    <span>KRIPTOBATTLE.COM</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      <div className="logoContainer">
+        <h1 className="logoText">
+            {language === 'EN' ? "WEB3" : "WEB3"}
+        </h1>
+        <div className="blingContainer">
+          <img
+            src={bling}
+            alt="Bling Effect"
+            className="blingImage"
+          />
         </div>
       </div>
-
-      {/* Main content */}
       <div className="main-content">
-        
         <div className="left-section">
-          {/* Title */}
+
           <div className="title-section">
             <h1 className="main-title">
               Kripto Galaxy Battle
@@ -62,20 +41,20 @@ const KriptoGalaxyBattle = () => {
               A New Idle "Play-to-Earn"
             </p>
           </div>
-          
-          {/* Floating platform with characters */}
+
+
           <div className="platforms-container">
             <div className="main-platform">
               <div className="character-1">
-                <img 
-                  src={character1} 
+                <img
+                  src={character1}
                   alt="Game character 1"
                 />
               </div>
               <div className="secondary-platform">
                 <div className="character-2">
-                  <img 
-                    src={character2} 
+                  <img
+                    src={character2}
                     alt="Game character 2"
                   />
                 </div>
@@ -83,29 +62,28 @@ const KriptoGalaxyBattle = () => {
             </div>
           </div>
         </div>
-        
-        {/* Right side - 3D Game Interface */}
+
         <div className="right-section">
           <div className="game-interface">
-            {/* 3D Game screen effect */}
+
             <div className="game-screen">
-              {/* Game interface mockup */}
+
               <div className="game-content">
-                <img 
-                  src={character3} 
+                <img
+                  src="https://hackernoon.imgix.net/images/9L2NNuHY0qNWCY6fOTuMMG7Qnqt1-dv13ake.jpeg"
                   alt="Game interface"
                 />
               </div>
             </div>
           </div>
         </div>
+
+
+        <div className="particle particle-1"></div>
+        <div className="particle particle-2"></div>
+        <div className="particle particle-3"></div>
       </div>
-      
-      {/* Floating particles */}
-      <div className="particle particle-1"></div>
-      <div className="particle particle-2"></div>
-      <div className="particle particle-3"></div>
-      
+
       <style jsx>{`
         .container {
           position: relative;
@@ -133,6 +111,42 @@ const KriptoGalaxyBattle = () => {
           background-position: center;
           background-repeat: no-repeat;
           filter: blur(12px) brightness(0.4);
+        }
+
+        .logoContainer {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          z-index: 30;
+        }
+
+        .logoText {
+          font-size: 4rem;
+          font-weight: bold;
+          color: white;
+          margin-bottom: 1rem;
+          position: relative;
+          z-index: 31;
+          text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .blingContainer {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 29;
+        }
+
+        .blingImage {
+          width: 7rem;
+          height: 7rem;
+          object-fit: contain;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
 
         .header-wrapper {
@@ -216,13 +230,14 @@ const KriptoGalaxyBattle = () => {
           display: grid;
           grid-template-columns: 1fr 1fr;
           gap: 32px;
-          padding: 60px 32px 32px;
+          padding: 60px 150px 150px;
         }
 
         .left-section {
           display: flex;
           flex-direction: column;
           justify-content: center;
+          align-items: center;
           gap: 32px;
         }
 
@@ -268,7 +283,6 @@ const KriptoGalaxyBattle = () => {
           height: 100%;
           object-fit: cover;
           border-radius: 12px;
-          
         }
 
         .secondary-platform {
@@ -309,7 +323,6 @@ const KriptoGalaxyBattle = () => {
           left: 12px;
           right: 12px;
           bottom: 12px;
-          
           overflow: hidden;
         }
 

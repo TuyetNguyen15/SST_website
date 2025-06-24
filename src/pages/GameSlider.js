@@ -5,11 +5,10 @@ import image4 from "../assets/image4.jpg";
 import image5 from "../assets/image5.jpg";
 import bling from "../assets/Frame42.png";
 import AnimatedBackground from '../components/AnimatedBackground';
-
+import { useLanguage } from "../components/LanguageContext";  
 
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Frame } from 'lucide-react';
-
 
 const LogoWithBling = () => {
   return (
@@ -29,6 +28,7 @@ const LogoWithBling = () => {
 };
 
 const GameHeroSection = () => {
+  
   const [currentRotation, setCurrentRotation] = useState(0);
   const [isAutoRotating, setIsAutoRotating] = useState(true);
   
@@ -86,122 +86,129 @@ const GameHeroSection = () => {
 
   return (
     <div style={styles.container}>
-      <AnimatedBackground />
-      <LogoWithBling />
       
-      {/* Subtitle */}
-      <div style={styles.subtitleContainer}>
-        <h2 style={styles.subtitle}>
-          <span style={styles.subtitleBlue}>Immersed in the </span>
-          <span style={styles.subtitleOrange}>entertainment </span>
-          <span style={styles.subtitleRed}>world</span>
-        </h2>
+      <div style={styles.backgroundWrapper}>
+        <AnimatedBackground />
       </div>
-
-      {/* 3D Carousel Container */}
-      <div style={styles.carouselContainer}>
-        <div 
-          style={{
-            ...styles.carouselInner,
-            transform: `rotateY(${-currentRotation}deg)`,
-          }}
-        >
-          {gameImages.map((game, index) => {
-            const angle = index * angleStep;
-            const isActive = Math.abs(((currentRotation % 360) + 360) % 360 - angle) < angleStep / 2 || 
-                           Math.abs(((currentRotation % 360) + 360) % 360 - (angle + 360)) < angleStep / 2;
-            
-            return (
-              <div
-                key={game.id}
-                style={{
-                  ...styles.gameItem,
-                  transform: `
-                    translate(-50%, -50%) 
-                    rotateY(${angle}deg) 
-                    translateZ(250px)
-                    ${isActive ? 'scale(1.1)' : 'scale(0.8)'}
-                  `,
-                  zIndex: isActive ? 10 : 0
-                }}
-              >
-                <div style={styles.gameCard}>
-                  <img 
-                    src={game.src} 
-                    alt={game.alt}
-                    style={{
-                      ...styles.gameImage,
-                    }}
-                  />
-                  
-                  {/* Game Title Overlay */}
-                  <div style={{
-                    ...styles.gameOverlay,
-                    opacity: isActive ? 1 : 0.6
-                  }}>
-                    <span style={{
-                      ...styles.gameTitle,
-                      fontSize: isActive ? '1.5rem' : '1.25rem'
-                    }}>
-                      {game.title}
-                    </span>
-                  </div>
-
-                  {/* Active Game Glow Effect */}
-                  {isActive && (
-                    <div style={styles.glowEffect}></div>
-                  )}
-                </div>
-              </div>
-            );
-          })}
+      
+     
+      <div style={styles.contentWrapper}>
+        <LogoWithBling />
+        
+        
+        <div style={styles.subtitleContainer}>
+          <h2 style={styles.subtitle}>
+            <span style={styles.subtitleBlue}>Immersed in the </span>
+            <span style={styles.subtitleOrange}>entertainment </span>
+            <span style={styles.subtitleRed}>world</span>
+          </h2>
         </div>
 
-        {/* Navigation Buttons */}
-        <button 
-          onClick={() => rotate(-1)}
-          style={styles.navButtonLeft}
-          onMouseEnter={() => setIsAutoRotating(false)}
-          onMouseLeave={() => setTimeout(() => setIsAutoRotating(true), 2000)}
-        >
-          <ChevronLeft size={28} />
-        </button>
         
-        <button 
-          onClick={() => rotate(1)}
-          style={styles.navButtonRight}
-          onMouseEnter={() => setIsAutoRotating(false)}
-          onMouseLeave={() => setTimeout(() => setIsAutoRotating(true), 2000)}
-        >
-          <ChevronRight size={28} />
-        </button>
-      </div>
+        <div style={styles.carouselContainer}>
+          <div 
+            style={{
+              ...styles.carouselInner,
+              transform: `rotateY(${-currentRotation}deg)`,
+            }}
+          >
+            {gameImages.map((game, index) => {
+              const angle = index * angleStep;
+              const isActive = Math.abs(((currentRotation % 360) + 360) % 360 - angle) < angleStep / 2 || 
+                             Math.abs(((currentRotation % 360) + 360) % 360 - (angle + 360)) < angleStep / 2;
+              
+              return (
+                <div
+                  key={game.id}
+                  style={{
+                    ...styles.gameItem,
+                    transform: `
+                      translate(-50%, -50%) 
+                      rotateY(${angle}deg) 
+                      translateZ(360px)
+                      ${isActive ? 'scale(1.15)' : 'scale(0.85)'}
+                    `,
+                    zIndex: isActive ? 10 : 0
+                  }}
+                >
+                  <div style={styles.gameCard}>
+                    <img 
+                      src={game.src} 
+                      alt={game.alt}
+                      style={{
+                        ...styles.gameImage,
+                      }}
+                    />
+                    
+                    
+                    <div style={{
+                      ...styles.gameOverlay,
+                      opacity: isActive ? 1 : 0.6
+                    }}>
+                      <span style={{
+                        ...styles.gameTitle,
+                        fontSize: isActive ? '1.6rem' : '1.3rem'
+                      }}>
+                        {game.title}
+                      </span>
+                    </div>
 
-      {/* Game Counter */}
-      <div style={styles.counterContainer}>
-        <div style={styles.counterInner}>
-          {gameImages.map((_, index) => {
-            const angle = index * angleStep;
-            const isActive = Math.abs(((currentRotation % 360) + 360) % 360 - angle) < angleStep / 2 || 
-                           Math.abs(((currentRotation % 360) + 360) % 360 - (angle + 360)) < angleStep / 2;
-            
-            return (
-              <div
-                key={index}
-                style={{
-                  ...styles.dot,
-                  backgroundColor: isActive ? '#fbbf24' : '#4b5563',
-                  transform: isActive ? 'scale(1.5)' : 'scale(1)',
-                  cursor: 'pointer'
-                }}
-                onClick={() => {
-                  setCurrentRotation(index * angleStep);
-                  setIsAutoRotating(false);
-                  setTimeout(() => setIsAutoRotating(true), 5000);
-                }}
-              />
-            );
-          })}
+                   
+                    {isActive && (
+                      <div style={styles.glowEffect}></div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+      
+          <button 
+            onClick={() => rotate(-1)}
+            style={styles.navButtonLeft}
+            onMouseEnter={() => setIsAutoRotating(false)}
+            onMouseLeave={() => setTimeout(() => setIsAutoRotating(true), 2000)}
+          >
+            <ChevronLeft size={32} />
+          </button>
+          
+          <button 
+            onClick={() => rotate(1)}
+            style={styles.navButtonRight}
+            onMouseEnter={() => setIsAutoRotating(false)}
+            onMouseLeave={() => setTimeout(() => setIsAutoRotating(true), 2000)}
+          >
+            <ChevronRight size={32} />
+          </button>
+        </div>
+
+        {/* Game Counter */}
+        <div style={styles.counterContainer}>
+          <div style={styles.counterInner}>
+            {gameImages.map((_, index) => {
+              const angle = index * angleStep;
+              const isActive = Math.abs(((currentRotation % 360) + 360) % 360 - angle) < angleStep / 2 || 
+                             Math.abs(((currentRotation % 360) + 360) % 360 - (angle + 360)) < angleStep / 2;
+              
+              return (
+                <div
+                  key={index}
+                  style={{
+                    ...styles.dot,
+                    backgroundColor: isActive ? '#fbbf24' : '#4b5563',
+                    transform: isActive ? 'scale(1.5)' : 'scale(1)',
+                    cursor: 'pointer'
+                  }}
+                  onClick={() => {
+                    setCurrentRotation(index * angleStep);
+                    setIsAutoRotating(false);
+                    setTimeout(() => setIsAutoRotating(true), 5000);
+                  }}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
@@ -210,52 +217,74 @@ const GameHeroSection = () => {
 
 const styles = {
   container: {
+    position: 'relative',
     minHeight: '100vh',
-    background: 'linear-gradient(135deg, #111827 0%, #1f2937 50%, #111827 100%)',
+    width: '100%',
+    overflow: 'hidden',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backgroundWrapper: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: 1, 
+  },
+  contentWrapper: {
+    position: 'relative',
+    zIndex: 10, 
+    width: '100%',
+    maxWidth: '80rem',
+    padding: '2rem',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    overflow: 'hidden'
+    minHeight: '100vh',
   },
   logoContainer: {
     position: 'relative',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    marginBottom: '2rem'
+    marginBottom: '3rem', 
+    zIndex: 15, 
   },
   logoText: {
-    fontSize: '4rem',
+    fontSize: '4.2rem', 
     fontWeight: 'bold',
     color: 'white',
-    marginBottom: '1rem',
+    marginBottom: '1.5rem', 
     position: 'relative',
-    zIndex: 10,
+    zIndex: 16,
+    textShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', 
   },
   blingContainer: {
     position: 'absolute',
-    top: '6rem',
+    top: '4rem', 
     left: '50%',
     transform: 'translateX(-50%)',
-    '@media (min-width: 768px)': {
-      top: '8rem'
-    }
+    zIndex: 12,
   },
   blingImage: {
-    width: '6rem',
-    height: '6rem',
+    width: '7rem', 
+    height: '7rem',
     objectFit: 'contain',
     animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
   },
   subtitleContainer: {
     textAlign: 'center',
-    marginBottom: '3rem'
+    marginBottom: '4rem', // Tăng margin
+    zIndex: 15,
   },
   subtitle: {
-    fontSize: '1.5rem',
+    fontSize: '1.8rem', // Tăng size
     fontWeight: '300',
     marginBottom: '0.5rem',
+    textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)', // Thêm shadow
   },
   subtitleBlue: {
     color: '#60a5fa'
@@ -269,12 +298,13 @@ const styles = {
   carouselContainer: {
     position: 'relative',
     width: '100%',
-    maxWidth: '64rem',
-    height: '20rem',
+    maxWidth: '76rem', // Tăng max-width thêm nữa
+    height: '24rem', // Tăng height
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    perspective: '1000px',
+    perspective: '1200px', // Tăng perspective
+    zIndex: 12,
   },
   carouselInner: {
     position: 'relative',
@@ -296,11 +326,12 @@ const styles = {
     transition: 'all 0.5s ease-out'
   },
   gameImage: {
-    width: '14rem',
-    height: '7.45rem',
+    width: '16rem', // Tăng size
+    height: '9rem', // Tăng size
     objectFit: 'cover',
-    borderRadius: '0.75rem',
+    borderRadius: '1rem', // Tăng border radius
     transition: 'all 0.5s ease-out',
+    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)', // Thêm shadow
   },
   gameOverlay: {
     position: 'absolute',
@@ -309,26 +340,39 @@ const styles = {
     right: 0,
     bottom: 0,
     background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-    borderRadius: '0.75rem',
+    borderRadius: '1rem',
     display: 'flex',
     alignItems: 'flex-end',
     justifyContent: 'center',
-    paddingBottom: '1rem',
+    paddingBottom: '1.2rem', // Tăng padding
     transition: 'opacity 0.5s ease-out'
   },
   gameTitle: {
     color: 'white',
     fontWeight: 'bold',
     transition: 'all 0.5s ease-out',
+    textShadow: '0 2px 4px rgba(0, 0, 0, 0.8)', // Thêm shadow cho text
+  },
+  glowEffect: {
+    position: 'absolute',
+    top: '-4px',
+    left: '-4px',
+    right: '-4px',
+    bottom: '-4px',
+    background: 'linear-gradient(45deg, #fbbf24, #f59e0b, #d97706)',
+    borderRadius: '1rem',
+    zIndex: -1,
+    opacity: 0.6,
+    filter: 'blur(8px)',
   },
   navButtonLeft: {
     position: 'absolute',
-    left: '1rem',
+    left: '1rem', // Giảm khoảng cách một chút
     top: '50%',
     transform: 'translateY(-50%)',
     backgroundColor: 'rgba(31, 41, 55, 0.9)',
     color: 'white',
-    padding: '1rem',
+    padding: '1.2rem', // Tăng padding
     borderRadius: '50%',
     border: 'none',
     cursor: 'pointer',
@@ -336,23 +380,15 @@ const styles = {
     backdropFilter: 'blur(4px)',
     boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
     zIndex: 20,
-    '@media (min-width: 768px)': {
-      left: '2rem'
-    },
-    ':hover': {
-      backgroundColor: 'rgba(55, 65, 81, 1)',
-      transform: 'translateY(-50%) scale(1.1)',
-      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-    }
   },
   navButtonRight: {
     position: 'absolute',
-    right: '1rem',
+    right: '1rem', // Giảm khoảng cách một chút
     top: '50%',
     transform: 'translateY(-50%)',
     backgroundColor: 'rgba(31, 41, 55, 0.9)',
     color: 'white',
-    padding: '1rem',
+    padding: '1.2rem', // Tăng padding
     borderRadius: '50%',
     border: 'none',
     cursor: 'pointer',
@@ -360,32 +396,24 @@ const styles = {
     backdropFilter: 'blur(4px)',
     boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
     zIndex: 20,
-    '@media (min-width: 768px)': {
-      right: '2rem'
-    },
-    ':hover': {
-      backgroundColor: 'rgba(55, 65, 81, 1)',
-      transform: 'translateY(-50%) scale(1.1)',
-      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
-    }
   },
   counterContainer: {
-    marginTop: '2rem',
-    textAlign: 'center'
+    marginTop: '3rem', // Tăng margin
+    textAlign: 'center',
+    zIndex: 15,
   },
   counterInner: {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    gap: '0.5rem'
+    gap: '0.75rem' // Tăng gap
   },
   dot: {
-    width: '0.75rem',
-    height: '0.75rem',
+    width: '1rem', // Tăng size
+    height: '1rem',
     borderRadius: '50%',
     transition: 'all 0.5s ease-out'
   }
 };
 
 export default GameHeroSection;
-
