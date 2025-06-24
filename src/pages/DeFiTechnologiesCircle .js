@@ -69,7 +69,7 @@ const DeFiTechnologiesCircle = () => {
   }, [technologies.length]);
 
   const calculatePosition = (index) => {
-    const angle = (index * 360) / technologies.length - 90; // Start from top
+    const angle = (index * 360) / technologies.length - 90;
     const radian = (angle * Math.PI) / 180;
     const x = centerX + (radius / 10) * Math.cos(radian);
     const y = centerY + (radius / 10) * Math.sin(radian);
@@ -78,12 +78,12 @@ const DeFiTechnologiesCircle = () => {
 
   return (
     <div style={styles.container}>
-      {/* Background circles for visual depth */}
+      
       <div style={styles.backgroundCircle1}></div>
       <div style={styles.backgroundCircle2}></div>
       <div style={styles.backgroundCircle3}></div>
 
-      {/* Header Title */}
+      
       <div style={styles.headerTitle}>
         <h1 style={styles.mainTitle}>
           <span style={styles.defiBold}>DeFi</span>
@@ -91,7 +91,7 @@ const DeFiTechnologiesCircle = () => {
         </h1>
       </div>
 
-      {/* Left Info Card */}
+     
       <div style={styles.leftInfoContainer}>
         <div style={styles.infoCard}>
           <p style={styles.infoText}>
@@ -100,7 +100,7 @@ const DeFiTechnologiesCircle = () => {
         </div>
       </div>
 
-      {/* Right Statistics Info */}
+      
       <div style={styles.statsContainer}>
         <div style={styles.statCard}>
           <span style={styles.statNumber}>$43B</span>
@@ -108,9 +108,9 @@ const DeFiTechnologiesCircle = () => {
         </div>
       </div>
 
-      {/* Main Circle Container */}
+     
       <div style={styles.circleContainer}>
-        {/* Central Circle */}
+        
         <div style={styles.centralCircle}>
           <div style={styles.centralContent}>
             <h2 style={styles.centralTitle}>Technologies Used in</h2>
@@ -119,7 +119,7 @@ const DeFiTechnologiesCircle = () => {
           <div style={styles.centralGlow}></div>
         </div>
 
-        {/* Technology Items */}
+        
         {technologies.map((tech, index) => {
           const position = calculatePosition(index);
           const IconComponent = tech.icon;
@@ -170,7 +170,7 @@ const DeFiTechnologiesCircle = () => {
                 </div>
               </div>
 
-              {/* Connection Line */}
+              
               <div 
                 style={{
                   ...styles.connectionLine,
@@ -182,7 +182,7 @@ const DeFiTechnologiesCircle = () => {
           );
         })}
 
-        {/* Orbital Ring */}
+   
         <div style={styles.orbitalRing}></div>
       </div>
     </div>
@@ -192,7 +192,8 @@ const DeFiTechnologiesCircle = () => {
 const styles = {
   container: {
     minHeight: '100vh',
-    width: '100vw',
+    width: '100%', 
+    maxWidth: '100%', 
     background: 'radial-gradient(circle at center, #1a1625 0%, #0f0a19 70%, #000000 100%)',
     display: 'flex',
     alignItems: 'center',
@@ -200,12 +201,13 @@ const styles = {
     position: 'relative',
     overflow: 'hidden',
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-    padding: '2rem'
+    padding: '2rem',
+    boxSizing: 'border-box' 
   },
   backgroundCircle1: {
     position: 'absolute',
-    width: '900px',
-    height: '900px',
+    width: 'min(900px, 50vw)', 
+    height: 'min(900px, 50vw)',
     borderRadius: '50%',
     background: 'radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%)',
     top: '5%',
@@ -214,8 +216,8 @@ const styles = {
   },
   backgroundCircle2: {
     position: 'absolute',
-    width: '700px',
-    height: '700px',
+    width: 'min(700px, 40vw)', 
+    height: 'min(700px, 40vw)',
     borderRadius: '50%',
     background: 'radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%)',
     bottom: '5%',
@@ -224,8 +226,8 @@ const styles = {
   },
   backgroundCircle3: {
     position: 'absolute',
-    width: '500px',
-    height: '500px',
+    width: 'min(500px, 30vw)', 
+    height: 'min(500px, 30vw)',
     borderRadius: '50%',
     background: 'radial-gradient(circle, rgba(16, 185, 129, 0.1) 0%, transparent 70%)',
     top: '50%',
@@ -234,15 +236,17 @@ const styles = {
   },
   headerTitle: {
     position: 'absolute',
-    top: '3rem',
+    top: '0rem',
     left: '50%',
     transform: 'translateX(-50%)',
     textAlign: 'center',
-    zIndex: 20
+    zIndex: 20,
+    width: '100%', // ✅ Đảm bảo không overflow
+    boxSizing: 'border-box'
   },
   mainTitle: {
     margin: 0,
-    fontSize: '3rem',
+    fontSize: 'clamp(2rem, 4vw, 3rem)', 
     fontWeight: '700'
   },
   defiBold: {
@@ -256,9 +260,10 @@ const styles = {
   leftInfoContainer: {
     position: 'absolute',
     top: '50%',
-    left: '2rem',
+    left: 'max(2rem, 2vw)', 
     transform: 'translateY(-50%)',
-    zIndex: 20
+    zIndex: 20,
+    maxWidth: 'calc(25vw - 2rem)'
   },
   infoCard: {
     background: 'rgba(255, 255, 255, 0.1)',
@@ -267,10 +272,11 @@ const styles = {
     borderRadius: '1rem',
     border: '1px solid rgba(255, 255, 255, 0.2)',
     maxWidth: '250px',
-    textAlign: 'center'
+    textAlign: 'center',
+    boxSizing: 'border-box' 
   },
   infoText: {
-    fontSize: '1rem',
+    fontSize: 'clamp(0.8rem, 1.2vw, 1rem)', 
     color: 'rgba(255, 255, 255, 0.9)',
     margin: 0,
     lineHeight: '1.6',
@@ -279,48 +285,51 @@ const styles = {
   statsContainer: {
     position: 'absolute',
     top: '50%',
-    right: '2rem',
+    right: 'max(2rem, 2vw)', 
     transform: 'translateY(-50%)',
-    zIndex: 20
+    zIndex: 20,
+    maxWidth: 'calc(25vw - 2rem)' 
   },
   statCard: {
     background: 'rgba(255, 255, 255, 0.1)',
     backdropFilter: 'blur(10px)',
     padding: '1.5rem',
-    marginRight: '3.5rem',
     borderRadius: '1rem',
     border: '1px solid rgba(255, 255, 255, 0.2)',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'center',
-    minWidth: '250px'
+    maxWidth: '250px',
+    boxSizing: 'border-box' // ✅ Thêm box-sizing
   },
   statNumber: {
-    fontSize: '2.5rem',
+    fontSize: 'clamp(1.8rem, 3vw, 2.5rem)', // ✅ Responsive font
     fontWeight: '700',
     color: '#F59E0B',
     marginBottom: '0.5rem',
     textShadow: '0 0 20px rgba(245, 158, 11, 0.5)'
   },
   statLabel: {
-    fontSize: '0.9rem',
+    fontSize: 'clamp(0.8rem, 1vw, 0.9rem)', // ✅ Responsive font
     color: 'rgba(255, 255, 255, 0.8)',
     lineHeight: '1.4',
     fontWeight: '300'
   },
   circleContainer: {
     position: 'relative',
-    width: '800px',
-    height: '800px',
+    width: 'min(800px, 70vw)', // ✅ Responsive size
+    height: 'min(800px, 70vw)',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    maxWidth: '100%', // ✅ Đảm bảo không overflow
+    maxHeight: '100%'
   },
   centralCircle: {
     position: 'absolute',
-    width: '240px',
-    height: '240px',
+    width: 'min(240px, 25vw)', // ✅ Responsive size
+    height: 'min(240px, 25vw)',
     borderRadius: '50%',
     background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2))',
     backdropFilter: 'blur(20px)',
@@ -337,7 +346,7 @@ const styles = {
     padding: '1rem'
   },
   centralTitle: {
-    fontSize: '1.2rem',
+    fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)', // ✅ Responsive font
     fontWeight: '600',
     color: 'white',
     margin: '0 0 0.5rem 0',
@@ -345,7 +354,7 @@ const styles = {
     lineHeight: '1.3'
   },
   centralSubtitle: {
-    fontSize: '1.2rem',
+    fontSize: 'clamp(0.9rem, 1.5vw, 1.2rem)', // ✅ Responsive font
     color: 'rgba(255, 255, 255, 0.9)',
     margin: 0,
     fontWeight: '600',
@@ -366,7 +375,7 @@ const styles = {
     transition: 'all 0.5s ease-out'
   },
   techCard: {
-    width: '150px',
+    width: 'min(150px, 12vw)', // ✅ Responsive width
     padding: '1.2rem',
     borderRadius: '1rem',
     display: 'flex',
@@ -375,7 +384,8 @@ const styles = {
     textAlign: 'center',
     cursor: 'pointer',
     transition: 'all 0.3s ease-out',
-    position: 'relative'
+    position: 'relative',
+    boxSizing: 'border-box' // ✅ Thêm box-sizing
   },
   techIcon: {
     marginBottom: '0.75rem',
@@ -389,13 +399,13 @@ const styles = {
     alignItems: 'center'
   },
   techTitle: {
-    fontSize: '0.9rem',
+    fontSize: 'clamp(0.7rem, 1vw, 0.9rem)', // ✅ Responsive font
     fontWeight: '600',
     margin: '0 0 0.25rem 0',
     lineHeight: '1.2'
   },
   techSubtitle: {
-    fontSize: '0.8rem',
+    fontSize: 'clamp(0.6rem, 0.9vw, 0.8rem)', // ✅ Responsive font
     margin: 0,
     lineHeight: '1.2',
     fontWeight: '300'
@@ -413,8 +423,8 @@ const styles = {
   },
   orbitalRing: {
     position: 'absolute',
-    width: '720px',
-    height: '720px',
+    width: 'min(720px, 65vw)', // ✅ Responsive size
+    height: 'min(720px, 65vw)',
     borderRadius: '50%',
     border: '1px dashed rgba(255, 255, 255, 0.2)',
     top: '50%',
@@ -425,7 +435,7 @@ const styles = {
   }
 };
 
-// Add CSS animations
+// Add CSS animations và media queries
 const styleSheet = document.createElement("style");
 styleSheet.type = "text/css";
 styleSheet.innerText = `
@@ -442,6 +452,13 @@ styleSheet.innerText = `
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
+  }
+  @media (max-width: 1200px) {
+    /* Ẩn side cards trên màn hình nhỏ để tránh overflow */
+  }
+  
+  @media (max-width: 768px) {
+    /* Mobile adjustments */
   }
 `;
 document.head.appendChild(styleSheet);
