@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/header";
 import "../assets/index.css";
-import { useLanguage } from "../components/LanguageContext"; 
+import { useLanguage } from "../components/LanguageContext";
 import Footer from "../components/Footer";
 
 const AIPage = () => {
@@ -107,39 +107,43 @@ const AIPage = () => {
 
                 <section className="py-12 px-4 sm:px-6 lg:px-8 h-[700px] mb-1">
                     <div className="max-w-6xl mx-auto">
-                        <h2 className="text-2xl sm:text-3xl md:text-6xl font-bold text-customer-2 mb-12 py-2 text-left w-full">
+                        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-customer-reversed  mb-12 py-2 text-left w-full">
                             {language === 'EN' ? "Explore our products" : "Sản phẩm khác"}
                         </h2>
 
-                       
-                        <div className="mb-6 flex justify-between gap-8">
-                            <div className="rounded-lg bg-[#CADFE9] w-2/3 flex flex-col items-center min-h-[450px] px-14">
-                                
+
+                        <div className="flex justify-between gap-8">
+                            <div className="w-2/3 flex flex-col items-center relative">
                                 <img
                                     src={require('../assets/images/service/coreBanking.jpg')}
-                                    alt={language === 'EN' ? "Core Banking System" : "Core Banking System"}
-                                    className="w-full h-[300px] rounded-b-lg shadow-xl"
+                                    alt={language === 'EN' ? "Banking Solutions" : "Giải Pháp Ngân Hàng"}
+                                    className="w-full h-[400px] object-cover rounded-xl shadow-xl transition-all duration-300"
                                 />
-
-                                <h2 className="text-left text-lg md:text-3xl mt-4 w-full">{language === 'EN' ? "E-banking System" : "Hệ thống E-banking"}</h2>
-                                <p className="text-left text-lg mt-2 w-full">{language === 'EN' ? "Building an online electricity and water payment system between the Bank and EVN (Electricity) and Hawacom (Water)" : "Hệ thống thanh toán điện nước trực tuyến giữa Ngân hàng và EVN (Điện) cùng Hawacom (Nước)"}</p>
+                                <div className=" rounded-xl px-6 absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center text-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <h2 className="text-white text-lg md:text-3xl">{language === 'EN' ? "Banking Solutions" : "Giải Pháp Ngân Hàng"}</h2>
+                                    <p className="text-white text-lg mt-2">{language === 'EN' ? "We provide advanced software solutions that help businesses and government agencies optimize processes and improve work efficiency" : "Chúng tôi cung cấp các giải pháp phần mềm tiên tiến, giúp doanh nghiệp và các cơ quan nhà nước tối ưu hóa quy trình và nâng cao hiệu quả công việc"}</p>
+                                </div>
                             </div>
-                            <div className="rounded-lg bg-[#EEE4DD] w-1/3 flex flex-col items-center min-h-[450px] px-14">
-                              
+                            <div className="w-1/3 flex flex-col items-center relative">
                                 <img
                                     src={require('../assets/images/service/T24.jpg')}
-                                    alt={language === 'EN' ? "Smart Camera AI" : "Camera Thông Minh AI"}
-                                    className="w-full h-[300px] rounded-b-lg shadow-xl "
+                                    alt={language === 'EN' ? "Software Solutions" : "Giải Pháp Phần Mềm"}
+                                    className="w-full h-[400px] object-cover rounded-xl shadow-xl transition-all duration-300"
                                 />
-
-                                <h2 className="text-left text-lg md:text-3xl mt-4 w-full">{language === 'EN' ? "T24 System" : "Hệ Thống T24"}</h2>
-                                <p className="text-left text-lg mt-2 w-full">{language === 'EN' ? "Research, operate and upgrade Core banking system" : "Nghiên cứu, vận hành và nâng cấp hệ thống ngân hàng lõi"}</p>
+                                <div className="rounded-xl absolute px-6 inset-0 bg-black bg-opacity-50 flex flex-col justify-center text-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                    <h2 className="text-white text-lg md:text-3xl">{language === 'EN' ? "Software Solutions" : "Giải Pháp Phần Mềm"}</h2>
+                                    <p className="text-white text-lg mt-2">{language === 'EN' ? "SST provides software and security solutions for many units in the banking industry" : "SST cung cấp các giải pháp phần mềm và bảo mật cho nhiều đơn vị trong ngành ngân hàng"}</p>
+                                    <p className="text-white text-lg mt-2">{language === 'EN' ? "Clients: VCB, TCB, VP Bank, SeaBank, OCB" : "Khách hàng: VCB, TCB, VP Bank, SeaBank, OCB"}</p>
+                                </div>
                             </div>
+                            
                         </div>
+
+
                     </div>
                 </section>
             </main>
-            <Footer/>
+            <Footer />
         </div>
     );
 };

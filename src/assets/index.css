@@ -1,20 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html {
-  scroll-behavior: smooth;
-}
-.slide-in {
-  transform: translateX(100%);
-  opacity: 0;
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
-}
 
-/* When the element is in view */
-.slide-in.visible {
-  transform: translateX(0);
-  opacity: 1;
-}
 .bg-customer{
     background-color: 020228;
 }
@@ -23,7 +10,7 @@ html {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-200%); /* Di chuyển 100% chiều dài của tất cả các ảnh */
+      transform: translateX(-200%); 
     }
   }
   h2 {
@@ -60,7 +47,7 @@ html {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    display: inline;
+    /* display: inline; */
   }
 
   .text-customer-2 {
