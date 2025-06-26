@@ -75,7 +75,7 @@ const Header = () => {
           </div>
         </NavLink>
 
-        <div className="hidden md:flex space-x-6 items-center outline outline-1 outline-gray-400 rounded-full p-2">
+        <div className="hidden md:flex space-x-6 items-center  rounded-full p-2 ml-auto">
           <NavLink to="#" onClick={() => handleNavClick('about-us')} className={`px-4 transition duration-300 ${activeSection === 'about-us' ? "bg-gray-600 text-white rounded-full" : "text-gray-300 rounded-full"}`}>
             {language === 'EN' ? 'About Us' : 'Giới Thiệu'}
           </NavLink>
