@@ -7,7 +7,7 @@ const KriptoGalaxyBattle = () => {
   const { language } = useLanguage();
 
   return (
-    <div className="relative h-full w-full overflow-hidden">
+    <div className="relative h-screen w-full overflow-hidden">
      
       <div
         className="absolute inset-0 bg-cover bg-center "
@@ -18,7 +18,7 @@ const KriptoGalaxyBattle = () => {
       <div className="absolute inset-0 bg-gray-900 opacity-60 z-10 " />
 
       {/* Main content */}
-      <div className="relative z-20 flex flex-col justify-center items-center h-full px-8 md:px-24">
+      <div className="relative z-20 flex flex-col justify-center items-center h-full  px-4 md:px-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-14 w-full max-w-6xl">
 
        
