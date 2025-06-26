@@ -1,419 +1,173 @@
-import image1 from "../assets/image1.jpg";
-import image2 from "../assets/image2.jpg";
-import image3 from "../assets/image3.jpg";
-import image4 from "../assets/image4.jpg";
-import image5 from "../assets/image5.jpg";
-import bling from "../assets/Frame42.png";
-import AnimatedBackground from '../components/AnimatedBackground';
-import { useLanguage } from "../components/LanguageContext";  
 
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Frame } from 'lucide-react';
+import React from "react";
 
-const LogoWithBling = () => {
+export default function GameContainer() {
   return (
-    <div style={styles.logoContainer}>
-      <h1 style={styles.logoText}>
-        WEB2
-      </h1>
-      <div style={styles.blingContainer}>
-        <img 
-          src={bling} 
-          alt="Bling Effect"
-          style={styles.blingImage}
-        />
-      </div>
-    </div>
-  );
-};
-
-const GameHeroSection = () => {
-  
-  const [currentRotation, setCurrentRotation] = useState(0);
-  const [isAutoRotating, setIsAutoRotating] = useState(true);
-  
-  const gameImages = [
-    {
-      id: 1,
-      src: image1,
-      alt: "Platform Game",
-      title: "Platform Adventure"
-    },
-    {
-      id: 2,
-      src: image2,
-      alt: "Puzzle Game",
-      title: "Color Puzzle"
-    },
-    {
-      id: 3,
-      src: image3,
-      alt: "Christmas Game",
-      title: "Christmas Special"
-    },
-    {
-      id: 4,
-      src: image4,
-      alt: "Racing Game",
-      title: "Speed Racing"
-    },
-    {
-      id: 5,
-      src: image5,
-      alt: "Adventure Game",
-      title: "Epic Adventure"
-    }
-  ];
-
-  const itemsCount = gameImages.length;
-  const angleStep = 360 / itemsCount;
-
-  const rotate = (direction) => {
-    setCurrentRotation(prev => prev + (direction * angleStep));
-    setIsAutoRotating(false);
-    setTimeout(() => setIsAutoRotating(true), 5000);
-  };
-
-  useEffect(() => {
-    if (!isAutoRotating) return;
-    
-    const interval = setInterval(() => {
-      setCurrentRotation(prev => prev + angleStep);
-    }, 3000);
-    
-    return () => clearInterval(interval);
-  }, [isAutoRotating, angleStep]);
-
-  return (
-    <div style={styles.container}>
-      
-      <div style={styles.backgroundWrapper}>
-        <AnimatedBackground />
-      </div>
-      
-     
-      <div style={styles.contentWrapper}>
-        <LogoWithBling />
-        
-        
-        <div style={styles.subtitleContainer}>
-          <h2 style={styles.subtitle}>
-            <span style={styles.subtitleBlue}>Immersed in the </span>
-            <span style={styles.subtitleOrange}>entertainment </span>
-            <span style={styles.subtitleRed}>world</span>
-          </h2>
+    <div className="game-container">
+      <div className="game-grid">
+        {/* Game Image */}
+        <div className="game-image">
+          <img
+            src="https://opposite-cormorant-6b6.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F8e5c5d63-b70f-4572-ac6b-5db6079780b0%2F8e5670dc-2829-4fe5-a5f6-1bda1930f4e3%2FUntitled.png?table=block&id=e646dbd0-3c4f-455f-9195-ba66b526e626&spaceId=8e5c5d63-b70f-4572-ac6b-5db6079780b0&width=1420&userId=&cache=v2"
+            alt="Match Market Sort: Triple 3D"
+            className="game-screenshot"
+          />
         </div>
 
-        
-        <div style={styles.carouselContainer}>
-          <div 
-            style={{
-              ...styles.carouselInner,
-              transform: `rotateY(${-currentRotation}deg)`,
-            }}
-          >
-            {gameImages.map((game, index) => {
-              const angle = index * angleStep;
-              const isActive = Math.abs(((currentRotation % 360) + 360) % 360 - angle) < angleStep / 2 || 
-                             Math.abs(((currentRotation % 360) + 360) % 360 - (angle + 360)) < angleStep / 2;
-              
-              return (
-                <div
-                  key={game.id}
-                  style={{
-                    ...styles.gameItem,
-                    transform: `
-                      translate(-50%, -50%) 
-                      rotateY(${angle}deg) 
-                      translateZ(360px)
-                      ${isActive ? 'scale(1.15)' : 'scale(0.85)'}
-                    `,
-                    zIndex: isActive ? 10 : 0
-                  }}
-                >
-                  <div style={styles.gameCard}>
-                    <img 
-                      src={game.src} 
-                      alt={game.alt}
-                      style={{
-                        ...styles.gameImage,
-                      }}
-                    />
-                    
-                    
-                    <div style={{
-                      ...styles.gameOverlay,
-                      opacity: isActive ? 1 : 0.6
-                    }}>
-                      <span style={{
-                        ...styles.gameTitle,
-                        fontSize: isActive ? '1.6rem' : '1.3rem'
-                      }}>
-                        {game.title}
-                      </span>
-                    </div>
+        {/* Game Content */}
+        <div className="game-content">
+          <h1 className="game-title">Stickman Combat Legend</h1>
 
-                   
-                    {isActive && (
-                      <div style={styles.glowEffect}></div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
+          <p className="game-description">
+            <strong>Stickman Combat Legend</strong> là trò chơi chiến đấu người que đơn giản nhất!!!
+            Trò chơi chiến đấu này sẽ cho phép bạn trở thành một trong những anh hùng của đội Siêu anh hùng, chiến đấu với những kẻ phản diện và bảo vệ toàn bộ hành tinh. Bước vào đấu trường và chiến đấu vì mạng sống của bạn. Nếu bạn thích chơi game thì đây là trò chơi dành cho bạn vì khả năng xử lý nhanh và các tính năng tuyệt vời.
+          </p>
+
+          <ul className="feature-list">
+            <li>Chế độ chơi đơn</li>
+            <li>Chế độ đối đầu</li>
+            <li>Chế độ giải đấu</li>
+            <li>Nhiều loại vũ khí để lựa chọn</li>
+          </ul>
+
+          <div className="download-section">
+            <a
+              href="https://play.google.com/store/apps/details?id=com.fc.stickman.heroes.fight.stick.warrirors"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="download-link"
+            >
+              <img
+                src="https://static.vecteezy.com/system/resources/thumbnails/024/170/871/small/badge-google-play-and-app-store-button-download-free-png.png"
+                alt="Get it on Google Play"
+                className="google-play-badge"
+              />
+            </a>
           </div>
+        </div>
+      </div>
 
-      
-          <button 
-            onClick={() => rotate(-1)}
-            style={styles.navButtonLeft}
-            onMouseEnter={() => setIsAutoRotating(false)}
-            onMouseLeave={() => setTimeout(() => setIsAutoRotating(true), 2000)}
-          >
-            <ChevronLeft size={32} />
-          </button>
+      <style jsx>{`
+        .game-container {
+          // max-width: 1200px;
+          margin: 0 auto;
+          padding: 40px 20px;
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          min-height: 100vh;
+        }
+        
+        .game-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 60px;
+          align-items: center;
+          border-radius: 24px;
+          padding: 60px;
           
-          <button 
-            onClick={() => rotate(1)}
-            style={styles.navButtonRight}
-            onMouseEnter={() => setIsAutoRotating(false)}
-            onMouseLeave={() => setTimeout(() => setIsAutoRotating(true), 2000)}
-          >
-            <ChevronRight size={32} />
-          </button>
-        </div>
-
-        {/* Game Counter */}
-        <div style={styles.counterContainer}>
-          <div style={styles.counterInner}>
-            {gameImages.map((_, index) => {
-              const angle = index * angleStep;
-              const isActive = Math.abs(((currentRotation % 360) + 360) % 360 - angle) < angleStep / 2 || 
-                             Math.abs(((currentRotation % 360) + 360) % 360 - (angle + 360)) < angleStep / 2;
-              
-              return (
-                <div
-                  key={index}
-                  style={{
-                    ...styles.dot,
-                    backgroundColor: isActive ? '#fbbf24' : '#4b5563',
-                    transform: isActive ? 'scale(1.5)' : 'scale(1)',
-                    cursor: 'pointer'
-                  }}
-                  onClick={() => {
-                    setCurrentRotation(index * angleStep);
-                    setIsAutoRotating(false);
-                    setTimeout(() => setIsAutoRotating(true), 5000);
-                  }}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </div>
+        }
+        
+        .game-image {
+          position: relative;
+        }
+        
+        .game-screenshot {
+          width: 100%;
+          height: auto;
+          border-radius: 20px;
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s ease;
+        }
+        
+        .game-content {
+          padding-left: 20px;
+        }
+        
+        .game-title {
+          font-size: 2.8rem;
+          font-weight: 800;
+          color: #2d3748;
+          margin: 0 0 24px 0;
+          line-height: 1.2;
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        
+        .game-description {
+          font-size: 1.1rem;
+          line-height: 1.7;
+          color: #4a5568;
+          margin-bottom: 32px;
+        }
+        
+        .feature-list {
+          list-style: none;
+          padding: 0;
+          margin: 0 0 40px 0;
+        }
+        
+        .feature-list li {
+          font-size: 1.1rem;
+          color: #2d3748;
+          margin-bottom: 12px;
+          padding-left: 28px;
+          position: relative;
+          line-height: 1.5;
+        }
+        
+        .feature-list li::before {
+          content: '✨';
+          position: absolute;
+          left: 0;
+          top: 0;
+          font-size: 1.2rem;
+        }
+        
+        .download-section {
+          margin-top: 40px;
+        }
+        
+        .download-link {
+          display: inline-block;
+          transition: transform 0.3s ease;
+        }
+        
+        .download-section .google-play-badge {
+          height: 60px;
+          width: auto;
+          filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+        }
+        
+        @media (max-width: 768px) {
+          .game-container {
+            padding: 20px 10px;
+          }
+          
+          .game-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding: 40px 30px;
+          }
+          
+          .game-content {
+            padding-left: 0;
+            text-align: center;
+          }
+          
+          .game-title {
+            font-size: 2.2rem;
+          }
+          
+          .game-description {
+            font-size: 1rem;
+          }
+          
+          .feature-list li {
+            text-align: left;
+          }
+        }
+      `}</style>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    position: 'relative',
-    minHeight: '100vh',
-    width: '100%',
-    overflow: 'hidden',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  backgroundWrapper: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: 1, 
-  },
-  contentWrapper: {
-    position: 'relative',
-    zIndex: 10, 
-    width: '100%',
-    maxWidth: '80rem',
-    padding: '2rem',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    minHeight: '100vh',
-  },
-  logoContainer: {
-    position: 'relative',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginBottom: '3rem', 
-    zIndex: 15, 
-  },
-  logoText: {
-    fontSize: '4.2rem', 
-    fontWeight: 'bold',
-    color: 'white',
-    marginBottom: '1.5rem', 
-    position: 'relative',
-    zIndex: 16,
-    textShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', 
-  },
-  blingContainer: {
-    position: 'absolute',
-    top: '4rem', 
-    left: '50%',
-    transform: 'translateX(-50%)',
-    zIndex: 12,
-  },
-  blingImage: {
-    width: '7rem', 
-    height: '7rem',
-    objectFit: 'contain',
-    animation: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-  },
-  subtitleContainer: {
-    textAlign: 'center',
-    marginBottom: '4rem', // Tăng margin
-    zIndex: 15,
-  },
-  subtitle: {
-    fontSize: '1.8rem', // Tăng size
-    fontWeight: '300',
-    marginBottom: '0.5rem',
-    textShadow: '0 2px 4px rgba(0, 0, 0, 0.3)', // Thêm shadow
-  },
-  subtitleBlue: {
-    color: '#60a5fa'
-  },
-  subtitleOrange: {
-    color: '#fb923c'
-  },
-  subtitleRed: {
-    color: '#f87171'
-  },
-  carouselContainer: {
-    position: 'relative',
-    width: '100%',
-    maxWidth: '76rem', // Tăng max-width thêm nữa
-    height: '24rem', // Tăng height
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    perspective: '1200px', // Tăng perspective
-    zIndex: 12,
-  },
-  carouselInner: {
-    position: 'relative',
-    width: '100%',
-    height: '100%',
-    transformStyle: 'preserve-3d',
-    transition: 'transform 1s ease-out'
-  },
-  gameItem: {
-    position: 'absolute',
-    left: '50%',
-    top: '50%',
-    transformStyle: 'preserve-3d',
-    transition: 'all 1s ease-out'
-  },
-  gameCard: {
-    position: 'relative',
-    cursor: 'pointer',
-    transition: 'all 0.5s ease-out'
-  },
-  gameImage: {
-    width: '16rem', // Tăng size
-    height: '9rem', // Tăng size
-    objectFit: 'cover',
-    borderRadius: '1rem', // Tăng border radius
-    transition: 'all 0.5s ease-out',
-    boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)', // Thêm shadow
-  },
-  gameOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background: 'linear-gradient(to top, rgba(0,0,0,0.8), transparent)',
-    borderRadius: '1rem',
-    display: 'flex',
-    alignItems: 'flex-end',
-    justifyContent: 'center',
-    paddingBottom: '1.2rem', // Tăng padding
-    transition: 'opacity 0.5s ease-out'
-  },
-  gameTitle: {
-    color: 'white',
-    fontWeight: 'bold',
-    transition: 'all 0.5s ease-out',
-    textShadow: '0 2px 4px rgba(0, 0, 0, 0.8)', // Thêm shadow cho text
-  },
-  glowEffect: {
-    position: 'absolute',
-    top: '-4px',
-    left: '-4px',
-    right: '-4px',
-    bottom: '-4px',
-    background: 'linear-gradient(45deg, #fbbf24, #f59e0b, #d97706)',
-    borderRadius: '1rem',
-    zIndex: -1,
-    opacity: 0.6,
-    filter: 'blur(8px)',
-  },
-  navButtonLeft: {
-    position: 'absolute',
-    left: '1rem', // Giảm khoảng cách một chút
-    top: '50%',
-    transform: 'translateY(-50%)',
-    backgroundColor: 'rgba(31, 41, 55, 0.9)',
-    color: 'white',
-    padding: '1.2rem', // Tăng padding
-    borderRadius: '50%',
-    border: 'none',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease-out',
-    backdropFilter: 'blur(4px)',
-    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    zIndex: 20,
-  },
-  navButtonRight: {
-    position: 'absolute',
-    right: '1rem', // Giảm khoảng cách một chút
-    top: '50%',
-    transform: 'translateY(-50%)',
-    backgroundColor: 'rgba(31, 41, 55, 0.9)',
-    color: 'white',
-    padding: '1.2rem', // Tăng padding
-    borderRadius: '50%',
-    border: 'none',
-    cursor: 'pointer',
-    transition: 'all 0.3s ease-out',
-    backdropFilter: 'blur(4px)',
-    boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    zIndex: 20,
-  },
-  counterContainer: {
-    marginTop: '3rem', // Tăng margin
-    textAlign: 'center',
-    zIndex: 15,
-  },
-  counterInner: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '0.75rem' // Tăng gap
-  },
-  dot: {
-    width: '1rem', // Tăng size
-    height: '1rem',
-    borderRadius: '50%',
-    transition: 'all 0.5s ease-out'
-  }
-};
-
-export default GameHeroSection;
+}
