@@ -127,7 +127,7 @@ const AIPage = () => {
                             <div className="w-1/3 flex flex-col items-center relative">
                                 <img
                                     src={require('../assets/images/service/T24.jpg')}
-                                    alt={language === 'EN' ? "Software Solutions" : "Giải Pháp Phần Mềm"}
+                                     alt={language === 'EN' ? "Software Solutions" : "Giải Pháp Phần Mềm"}
                                     className="w-full h-[400px] object-cover rounded-xl shadow-xl transition-all duration-300"
                                 />
                                 <div className="rounded-xl absolute px-6 inset-0 bg-black bg-opacity-50 flex flex-col justify-center text-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 sm:px-4 sm:text-left">
