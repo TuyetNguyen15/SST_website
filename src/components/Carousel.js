@@ -25,7 +25,7 @@ const CircularCarousel = () => {
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [nextSlide]);
 
   const calculatePosition = (index) => {
     const angle = ((index - currentIndex) * 360) / totalSlides;
