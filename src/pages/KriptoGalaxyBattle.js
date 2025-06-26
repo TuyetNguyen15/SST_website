@@ -7,7 +7,7 @@ const KriptoGalaxyBattle = () => {
   const { language } = useLanguage();
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative h-full w-full overflow-hidden">
      
       <div
         className="absolute inset-0 bg-cover bg-center "
